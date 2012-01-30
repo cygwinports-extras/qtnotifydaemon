@@ -1,0 +1,7 @@
+--- origsrc/qtnotifydaemon.pro	2011-08-09 11:22:07.000000000 -0500
++++ src/qtnotifydaemon.pro	2012-01-30 09:41:02.683512200 -0600
+@@ -12,3 +12,4 @@ RESOURCES += images.qrc
+ 
+ # Input
+ SOURCES += main.cpp notifywidget.cpp dbus.cpp notifyarea.cpp message.cpp
++LIBS += $$QMAKE_LIBS_X11

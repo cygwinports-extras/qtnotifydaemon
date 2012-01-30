@@ -1,0 +1,30 @@
+inherit qt4-qmake
+
+
+HOMEPAGE="http://drull.org.ru/qtnotifydaemon/"
+SRC_URI="mirror://sourceforge/qtnotifydaemon/${PN}_${PV}.orig.tar.gz"
+SRC_DIR=.
+
+PATCH_URI="1.0.14-no-undefined.patch"
+
+DISTCLEANFILES="Makefile qtnotifydaemon"
+
+src_install() {
+	cd ${B}
+	dobin qtnotifydaemon.exe
+
+	# do not install the DBus service file because multiple programs
+	# can provide org.freedesktop.Notifications (gnome-shell,
+	# GNOME notification-daemon, Ubuntu notify-osd, XFCE notifyd)
+	# but only one can run at a given time.  The supported solution is
+	# for none of them to register for DBus autostart, but leave the
+	# session manager to launch the service provider for the given desktop.
+	dodir /etc/xdg/autostart
+	cat > ${D}/etc/xdg/autostart/${PN}.desktop <<_EOF
+[Desktop Entry]
+Type=Application
+Name=Qt Notification Daemon
+Exec=qtnotifydaemon
+OnlyShowIn=Razor;
+_EOF
+}
