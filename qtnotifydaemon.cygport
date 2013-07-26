@@ -10,8 +10,10 @@ based on Qt. It uses D-BUS to communicate with other applications."
 HOMEPAGE="http://drull.org.ru/qtnotifydaemon/"
 SRC_URI="mirror://sourceforge/qtnotifydaemon/${NAME}_${VERSION}.orig.tar.gz"
 SRC_DIR=.
-
-PATCH_URI="1.0.14-no-undefined.patch"
+PATCH_URI="
+	1.0.14-no-undefined.patch
+	1.0.14-gcc47.patch
+"
 
 DISTCLEANFILES="Makefile qtnotifydaemon"
 

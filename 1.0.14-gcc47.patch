@@ -1,0 +1,20 @@
+--- origsrc/main.cpp	2011-08-16 05:37:09.000000000 -0500
++++ src/main.cpp	2013-07-26 13:25:06.716864200 -0500
+@@ -22,6 +22,7 @@
+ #include <signal.h>
+ #include <sys/stat.h>
+ #include <pwd.h>
++#include <unistd.h>
+ #include "dbus.h"
+ #include "notifywidget.h"
+ #include "notifyarea.h"
+--- origsrc/notifyarea.cpp	2011-08-16 05:37:09.000000000 -0500
++++ src/notifyarea.cpp	2013-07-26 13:26:09.463453100 -0500
+@@ -22,6 +22,7 @@
+ #include <QSystemTrayIcon> //alex
+ #include <QDesktopWidget>
+ #include <fstream>
++#include <unistd.h>
+ #include "notifyarea.h"
+ #include "notifywidget.h"
+ #include "dbus.h"
