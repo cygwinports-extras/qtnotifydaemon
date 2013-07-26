@@ -1,5 +1,0 @@
-category: X11
-requires: libgcc1 libQtCore4 libQtDBus4 libQtGui4 libstdc++6 libX11_6
-sdesc: "Qt notification daemon"
-ldesc: "qtnotifydaemon is flexible and configurable notification daemon 
-based on Qt. It uses D-BUS to communicate with other applications."
