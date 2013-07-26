@@ -2,7 +2,7 @@ inherit qt4-qmake
 
 NAME="qtnotifydaemon"
 VERSION=1.0.14
-RELEASE=1
+RELEASE=2
 CATEGORY="X11"
 SUMMARY="Qt notification daemon"
 DESCRIPTION="qtnotifydaemon is flexible and configurable notification daemon
@@ -20,12 +20,5 @@ DISTCLEANFILES="Makefile qtnotifydaemon"
 src_install() {
 	cd ${B}
 	dobin qtnotifydaemon.exe
-
-	# do not install the DBus service file because multiple programs
-	# can provide org.freedesktop.Notifications (gnome-shell,
-	# GNOME notification-daemon, Ubuntu notify-osd, XFCE notifyd)
-	# but only one can run at a given time.  The supported solution is
-	# for none of them to register for DBus autostart, but leave the
-	# session manager to launch the service provider for the given desktop.
-	make_autostart_entry qtnotifydaemon "Qt Notification Daemon" "OnlyShowIn=Razor;"
+	# razor has its own notifyd now, so no autostart is provided
 }
